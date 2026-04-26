@@ -14,7 +14,14 @@ class Program
         {
             Console.Write("Enter a number: ");
             response = Console.ReadLine();
-            numbers.Add(int.Parse(response));
+            if (response == "0")
+            {
+                Console.WriteLine();
+            }
+            else
+            {
+                numbers.Add(int.Parse(response));
+            }
         }
 
         int sum = 0;
@@ -35,7 +42,7 @@ class Program
         }
         
         Console.WriteLine($"The sum is {sum}");
-        Console.WriteLine($"The average is {sum * 1.0/ numbers.Count * 1.0}");
+        Console.WriteLine($"The average is {sum * 1.0 / numbers.Count * 1.0}");
         Console.WriteLine($"The largest number is {highest}");
 
     }

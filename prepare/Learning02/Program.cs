@@ -27,6 +27,5 @@ class Program
         resume1._name = "Davin";
         resume1._jobs = [job1, job2];
         resume1.Display();
-
     }
 }

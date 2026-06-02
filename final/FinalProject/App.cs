@@ -20,19 +20,23 @@ public class App
         double income = _incomeManager.CalculateMonthlyTotal();
         double expenses = _expenseManager.CalculateMonthlyTotal();
         double totalCashflow = income = expenses;
+        Console.WriteLine("---------------------------------------------------------");
         Console.WriteLine($"Your total monthly cashflow is: {totalCashflow}");
+        Console.WriteLine("---------------------------------------------------------");
         Console.ReadLine();
     }
     public void Menu()
     {
         string menu = $"""
+        ----------------------------------------------
         What would you like to do today?
-
+        ----------------------------------------------
         1. Edit Expenses
         2. Edit Income
         3. View Cashflow Report
-
+        ----------------------------------------------
         Select an option or type quit to end: 
+        ----------------------------------------------
         """;
         string response = " ";
         while (response != "quit")

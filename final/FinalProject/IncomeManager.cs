@@ -13,14 +13,16 @@ public class IncomeManager
     public void AddIncomeSource()
     {
         string addIncomeMenu = """
+        -----------------------------------------------------------------
         Which kind of Income Source would you like to add?
         1. Hourly
         2. Salary Bases
-
+        -----------------------------------------------------------------
         Select an option or press Enter to go back to menu: 
+        -----------------------------------------------------------------
         """;
         Console.Clear();
-        Console.Write(addIncomeMenu);
+        Console.WriteLine(addIncomeMenu);
         string str_response = Console.ReadLine();
         if (str_response != "")
         {
@@ -39,12 +41,15 @@ public class IncomeManager
     }
     public void ViewIncomeSources()
     {
-        Console.WriteLine("Your income sources are:\n");
+        Console.WriteLine("--------------------------------------------");
+        Console.WriteLine("Your income sources are:");
+        Console.WriteLine("--------------------------------------------");
         foreach (var(index, income) in _incomeSources.Index())
         {
             Console.WriteLine($"{index + 1}.\n{income.GetInfo()}");
             Console.WriteLine();
         }
+        Console.WriteLine("--------------------------------------------");
     }
     public double CalculateMonthlyTotal()
     {
@@ -72,6 +77,7 @@ public class IncomeManager
         ViewIncomeSources();
         CalculateMonthlyTotal();
         Console.WriteLine($"\nYour Total Monthly Income Sources are ${_monthlyTotal}");
+        Console.WriteLine("--------------------------------------------");
         Console.WriteLine();
         Console.ReadLine();
     }
@@ -80,6 +86,7 @@ public class IncomeManager
         Console.Clear();
         ViewIncomeSources();
         Console.Write("Which Income Source would you like to delete? ");
+        Console.WriteLine("--------------------------------------------");
         int response = int.Parse(Console.ReadLine());
         response --;
         _incomeSources.RemoveAt(response);
@@ -89,11 +96,13 @@ public class IncomeManager
         string response = "0";
 
         string menu = """
+        ------------------------------------------------------------------
         1. Add Income Source
         2. Delete Income Source
         3. View Incomes Sources
-
+        ------------------------------------------------------------------
         Select your option or enter space to go back to the menu
+        ------------------------------------------------------------------
         """;
         while (response != " ")
         {

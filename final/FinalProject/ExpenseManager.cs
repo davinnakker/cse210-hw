@@ -14,15 +14,17 @@ public class ExpenseManager
     public void AddExpenses()
     {
         string addExpenseMenu = """
+        -----------------------------------------------------------
         Which kind of Expense would you like to add?
         1. Monthly
         2. Annual
         3. MultiMonthly
-
+        -----------------------------------------------------------
         Select an option or press Enter to go back to menu: 
+        -----------------------------------------------------------
         """;
         Console.Clear();
-        Console.Write(addExpenseMenu);
+        Console.WriteLine(addExpenseMenu);
         string str_response = Console.ReadLine();
         if (str_response != "")
         {
@@ -46,12 +48,15 @@ public class ExpenseManager
     }
     public void ViewExpenses()
     {
-        Console.WriteLine("Your expense are:\n");
+        Console.WriteLine("-------------------------------------------------------");
+        Console.WriteLine("Your expense are:");
+        Console.WriteLine("-------------------------------------------------------");
         foreach (var(index, expense) in _expenses.Index())
         {
             Console.WriteLine($"{index + 1}.\n{expense.GetInfo()}");
             Console.WriteLine();
         }
+        Console.WriteLine("-------------------------------------------------------");
     }
     public double CalculateMonthlyTotal()
     {
@@ -78,7 +83,8 @@ public class ExpenseManager
         Console.Clear();
         ViewExpenses();
         CalculateMonthlyTotal();
-        Console.WriteLine($"\nYour Total Monthly Expenses are ${_monthlyTotal}");
+        Console.WriteLine($"Your Total Monthly Expenses are ${_monthlyTotal}");
+        Console.WriteLine("-------------------------------------------------------");
         Console.WriteLine();
         Console.ReadLine();
     }
@@ -87,6 +93,7 @@ public class ExpenseManager
         Console.Clear();
         ViewExpenses();
         Console.Write("Which Expense would you like to delete? ");
+        Console.WriteLine("-------------------------------------------------------");
         int response = int.Parse(Console.ReadLine());
         response --;
         _expenses.RemoveAt(response);
@@ -96,11 +103,13 @@ public class ExpenseManager
         string response = "0";
 
         string menu = """
+        ----------------------------------------------------------------------
         1. Add Expense
         2. Delete Expense
         3. View Expenses
-
+        ----------------------------------------------------------------------
         Select your option or enter space to go back to the menu
+        ----------------------------------------------------------------------
         """;
         while (response != " ")
         {
